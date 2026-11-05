@@ -48,6 +48,11 @@ section{padding:80px 5%}.wrap{max-width:1300px;margin:auto}
 .sede{background:var(--cb);border-top:1px solid rgba(212,175,55,.2);border-bottom:1px solid rgba(212,175,55,.2)}
 .sg{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));text-align:center}
 .sg div{padding:26px;border:1px solid rgba(212,175,55,.2)}.sg h3{color:var(--gd);font-size:1.4rem;margin-bottom:6px}.sg p{font-size:.85rem}
+.mapbox{position:relative;margin-top:34px;border:1px solid var(--gd);box-shadow:0 0 50px rgba(212,175,55,.14);overflow:hidden}
+.mapbox iframe{display:block;width:100%;height:380px;border:0;filter:grayscale(1) invert(.92) contrast(.95) sepia(.45) saturate(1.8) hue-rotate(-8deg)}
+.maptag{position:absolute;left:14px;bottom:14px;max-width:calc(100% - 28px);background:rgba(10,10,10,.92);border:1px solid var(--gd);padding:14px 18px;display:flex;flex-direction:column;gap:4px;align-items:flex-start;backdrop-filter:blur(6px)}
+.maptag span{font-size:1.5rem;line-height:1}.maptag small{font-size:.68rem;color:var(--mu);letter-spacing:.08em;margin-bottom:6px}
+@media(max-width:700px){.mapbox iframe{height:320px}}
 footer{padding:46px 5% 30px;text-align:center;background:#050505}
 footer .row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:18px 0}footer small{color:var(--mu);font-size:.7rem;letter-spacing:.1em}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:100;display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}
@@ -92,8 +97,13 @@ input:focus,select:focus,textarea:focus{border-color:var(--gd)}
  <div class="sg">
   <div><h3>Ubicación</h3><p>Aguachica, Cesar, Colombia<br>Calle 10Norte # 39D - 41<br>Edificio DRPC</p></div>
   <div><h3>Atención directa</h3><p>Escríbenos por WhatsApp Business</p><br><a class="btn" id="waMain" target="_blank" rel="noopener">WhatsApp</a></div>
-  <div><h3>Instagram</h3><p>@msbou_tique25</p><br><a class="btn" href="https://instagram.com/@msbou_tique25" target="_blank" rel="noopener">Seguir</a></div>
-  <div><h3>Mapa</h3><p>Edificio DRPC, Aguachica</p><br><a class="btn" id="mapBtn" target="_blank" rel="noopener">Ver ubicación en mapa</a></div>
+  <div><h3>Instagram</h3><p>@meli10252020</p><br><a class="btn" href="https://instagram.com/meli10252020" target="_blank" rel="noopener">Seguir</a></div>
+ </div>
+ <div class="mapbox">
+  <iframe title="Ubicación M&S Boutique" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+   src="https://www.google.com/maps?q=Edificio+DRPC,+Calle+10Norte+39D+41,+Aguachica,+Cesar,+Colombia&z=17&output=embed"></iframe>
+  <div class="maptag"><span class="serif gold">M&amp;S Boutique</span><small>Edificio DRPC · Calle 10Norte # 39D - 41</small>
+   <a class="btn sm" id="mapBtn" target="_blank" rel="noopener">Ver ubicación en mapa</a></div>
  </div>
 </div></section>
 
@@ -133,7 +143,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--gd)}
 <script>
 /* ===== CONFIGURACIÓN — edite estos valores ===== */
 const SUPABASE_URL  = "https://wgddmgyzkkntdsjrwgtg.supabase.co";   // Supabase → Project Settings → API
-const SUPABASE_KEY  = "sb_publishable_ccgiREoopddTHUQm6IapPw_Gyq_ES9T";      // clave "Publishable key" (sb_publishable_...)
+const SUPABASE_KEY  = "PEGUE-AQUI-LA-CLAVE-COMPLETA";      // clave "Publishable key" (sb_publishable_...)
 const WHATSAPP      = "57XXXXXXXXXX";                      // número de la boutique con 57, sin + ni espacios
 const ADMIN_HASH    = "29df2a2c194b141c7750a3185ad14b808f0758bdbb6392a7c0289c6228792fc5";                          // SHA-256 de la clave (por defecto: MSBoutique2026)
 /* =============================================== */
