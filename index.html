@@ -254,9 +254,9 @@ function saveCart(){try{localStorage.setItem("msb_cart",JSON.stringify(cart))}ca
 const total=()=>cart.reduce((a,i)=>a+i.p*i.q,0);
 function msg(items,nom,dir){
  return "Hola M&S Boutique, deseo solicitar la compra de las siguientes prendas de su catálogo web:\n"+items.map(i=>`- ${i.n}${i.t?" (Talla "+i.t+")":""} x${i.q} — ${cop(i.p*i.q)}`).join("\n")+
- `\nDomicilio: ${ENVIO_COSTO>0?cop(ENVIO_COSTO):"a convenir"} (${ENVIO_TIEMPO})\nTotal: ${cop(items.reduce((a,i)=>a+i.p*i.q,0)+envio())}`+(nom?`\nNombre: ${nom}`:"")+(dir?`\nDirección: ${dir}`:"")+"\nQuedo atenta para coordinar el pago y envío a domicilio."}
+ `\nDomicilio: ${ENVIO_COSTO>0?cop(ENVIO_COSTO):} ${ENVIO_TIEMPO}\nTotal: ${cop(items.reduce((a,i)=>a+i.p*i.q,0)+envio())}`+(nom?`\nNombre: ${nom}`:"")+(dir?`\nDirección: ${dir}`:"")+"\nQuedo atenta para coordinar el pago y envío a domicilio."}
 const envio=()=>ENVIO_COSTO>0?ENVIO_COSTO:0;
-const envRow=()=>`<div class="ci"><div><b>Domicilio</b><small>${esc(ENVIO_TIEMPO)}</small></div><span>${ENVIO_COSTO>0?cop(ENVIO_COSTO):"A convenir"}</span></div>`;
+const envRow=()=>`<div class="ci"><div><b>Domicilio</b><small>${esc(ENVIO_TIEMPO)}</small></div><span>${ENVIO_COSTO>0?cop(ENVIO_COSTO):}</span></div>`;
 function drawCart(){
  $("cList").innerHTML=cart.length?cart.map((i,k)=>`<div class="ci"><div><b>${esc(i.n)}</b><small>${esc(i.c)}${i.t?" · Talla "+esc(i.t):""} · ${cop(i.p)}</small></div>
  <div class="qty"><button data-m="${k}">−</button>${i.q}<button data-p="${k}">+</button></div></div>`).join("")+envRow():'<div class="empty" style="padding:30px 0">Tu carrito está vacío</div>';
